@@ -6,11 +6,11 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/04 16:59:50 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/07 15:57:10 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
-#include <unistd.h> //write
+#include "push_swap.h"
 
 // libft a ajouter/ atoi a supprimer
 int	ft_atoi(const char *nptr)
