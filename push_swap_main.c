@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 #include <stdio.h>  //printf
 #include "push_swap.h"
+void ft_putchar(int a )
+{
+    write(1,&a ,1);
+}
 
 // libft a ajouter/ atoi a supprimer
 int	ft_atoi(const char *nptr)
@@ -40,25 +44,6 @@ int	ft_atoi(const char *nptr)
 }
 
 
-//check ordre
-int	check_order(int *tab, int size)
-{
-	int	i;
-	
-	i = 0;
-	while (i <= size)
-	{
-		if (tab[i + 1] < tab [i])
-		{
-			printf("besoin de trier");
-			return (1);
-		}
-	}
-	i++;
-	return (0);
-}
-
-
 
 
 int	main (int argc, char **argv)
@@ -78,23 +63,50 @@ int	main (int argc, char **argv)
 		stack_a[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
-	//si 2 chiffres
-	if (argc - 1  < 3)		
-		if (check_order(stack_a, argc - 1))
-			write(1, "sa", 2);
-		return (0);	
-	//si 3 cHiffres
+/// si 1 chiffre ou aucun chiffre?
 
-	else if (argc - 1 == 3)
+	//si 2 chiffres
+    if (argc  ==  3)		
+    {
+        if (check_order(stack_a, argc - 1))   
+            write(1, "sa\n", 3);
+        else 
+            return (0);	
+    }   
+
+      //  si 3 cHiffres
+    int *(*tab_ft[3])(int *, int);
+    tab_ft[0] = &ft_s;
+    tab_ft[1] = &ft_r;
+    tab_ft[2] = &ft_rr;
+    while ((check_order(stack_a, 3)))
+        {
+            ((*tab_ft[i])(stack_a, 3));
+            i++;
+        }
+
+	 if (argc == 4)
+    {
+        //ft_rr(stack_a, 3);
+       // ft_sort_3(stack_a, 3);
+        ft_putchar (stack_a[0] + '0');
+        ft_putchar (stack_a[1] + '0');
+        ft_putchar (stack_a[2] + '0');
+        return 0;
+    }
+
+    else
+        return (1);
+
 
 	//si 4 ou 5 chiffres
 	
 	
 	//affiche stack [a]//a supprimer
-	i = 0;
-	while(i < argc - 1)
-	{
-		printf("%d ", stack_a[i]);
-		i++;
-	}
+//	i = 0;
+//	while(i < argc - 1)
+//	{
+//		printf("%d ", stack_a[i]);
+//		i++;
+//	}
 }

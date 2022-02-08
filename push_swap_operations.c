@@ -1,7 +1,9 @@
 #include "push_swap.h"
-int	*ft_s(int *stack, char *operation)
+
+int	*ft_s(int *stack, int size)
 {
 	int	tmp;
+    (void) size;
 
 	tmp = stack[0];
 	stack[0] = stack[1]; 
@@ -9,28 +11,34 @@ int	*ft_s(int *stack, char *operation)
 	return (stack);
 }
 
-int	*ft_r(int stack[n], char *operation)
+int	*ft_r(int *stack,int size)
 {	
 	int	tmp;
 	int	i;
 	
 	i = 0;
 	tmp = stack[i];
-	while (i < n)
-		stack [i] = stack[i + 1];
+	while (i < size - 1)
+    {
+        stack [i] = stack[i + 1];
+        i++;
+    }
 	stack[i] = tmp;
 	return (stack);
 }
 
-int 	*ft_rr(int stack[n], char *operation)
+int 	*ft_rr(int *stack, int size)
 {
 	int	tmp;
 	int	i;
 
 	i = 0;
-	tmp = stack[n];
-	while (i < n)
-		stack[n] = stack[n-i];
+	tmp = stack[size - 1];
+	while (i < size - 1)
+    {
+        stack[size - 1 - i] = stack[size -2 - i];
+        i++;
+    }
 	stack[0] = tmp;
 	return (stack);
 }
