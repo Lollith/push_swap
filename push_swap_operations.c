@@ -8,6 +8,7 @@ int	*ft_s(int *stack, int size)
 	tmp = stack[0];
 	stack[0] = stack[1]; 
 	stack[1] = tmp;
+	//write(1, "sa", 2);
 	return (stack);
 }
 
@@ -24,6 +25,7 @@ int	*ft_r(int *stack,int size)
         i++;
     }
 	stack[i] = tmp;
+//	write(1, "ra", 2);
 	return (stack);
 }
 
@@ -40,6 +42,7 @@ int 	*ft_rr(int *stack, int size)
         i++;
     }
 	stack[0] = tmp;
+//	write(1, "rra", 3);
 	return (stack);
 }
 

@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:51:03 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/07 15:58:08 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/09 16:43:29 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,22 @@
 //    }
 //}
 //
+void	*ft_memcpy(void	*dest, const void *src, size_t n)// remplacer par libft
+{
+	unsigned int	i;
+	const unsigned char *s;
+	unsigned char	*d;
+	s=src;
+	d=dest;
+	i=0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}
+//
 //
 //check ordre
 int	check_order(int *tab, int size)
@@ -36,14 +52,14 @@ int	check_order(int *tab, int size)
 	int	i;
 	
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
 		if (tab[i + 1] < tab [i])
 		{
-			printf("besoin de trier");
+			write(1, "besoin de trier\n",16);
 			return (1);
 		}
-        i++;
+       		i++;
 	}
 	return (0); // pas besoin de trier
 }
