@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/10 11:56:50 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/10 15:13:35 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -51,9 +51,14 @@ int	main (int argc, char **argv)
 	int 	stack_input[argc - 1];
 	//	int	stack_b[argc - 1];
 	int	i;
-	//int	j;
+	int	j;
 
 	i = 1;
+
+//	int stack_a[3]; //
+//	int stack_input[]= {3, 2, 1}; //pour test
+//	ft_memcpy (stack_a, stack_input, sizeof(int) * 3);//test
+
 
 	if (argc < 2 )
 		return (0);
@@ -78,7 +83,7 @@ int	main (int argc, char **argv)
 
 	//  si 3 cHiffres
 	i = 0;
-	//j = 0;
+	j = 0;
 	if (argc == 4)
 	{
 		int	*(*tab_ft[3])(int *, int);
@@ -91,37 +96,37 @@ int	main (int argc, char **argv)
 		tab_name [1] = "ra\n";
 		tab_name [2] = "rra\n";
 		
-		while ((check_order(stack_a, 3)) && i < 3)
+		while ((check_order(stack_a, 3)) && i < 3 )
 		{
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
 			((*tab_ft[i])(stack_a, 3));
-			i++;
-				
-		ft_putchar(stack_a[0] + '0');
-		ft_putchar(stack_a[1] + '0');
-		ft_putchar(stack_a[2] + '0');
-
-		}
-		i = 1;
-		while ((check_order(stack_a, 3)) && i < 5)
-		{
-			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
-			((*tab_ft[0])(stack_a, 3));
-			((*tab_ft[i])(stack_a, 3));
-			i++;
-
-		ft_putchar(stack_a[0] + '0');
-		ft_putchar(stack_a[1] + '0');
-		ft_putchar(stack_a[2] + '0');
-		}
-		printf("%s", tab_name[i - 1]); // libft => ft_printf
+			
+			ft_putchar(stack_a[0] + '0');
+			ft_putchar(stack_a[1] + '0');
+			ft_putchar(stack_a[2] + '0');
+			j ++;
+			if(check_order(stack_a, 3) && j < 3)
+			{
 					
+				((*tab_ft[j])(stack_a, 3));
+				
+				ft_putchar(stack_a[0] + '0');
+				ft_putchar(stack_a[1] + '0');
+				ft_putchar(stack_a[2] + '0');
+				
+				i--;
+			}
+			i++;
+		}
+		printf("%s", tab_name[i]); // libft => ft_printf
+//		if (j != i)
+//		{	
+//			i = j;
+			printf("%s", tab_name[j]); // libft => ft_printf
+//		}
+		return 0;
 		//ft_rr(stack_a, 3);
 		// ft_sort_3(stack_a, 3);
-	//	ft_putchar(stack_a[0] + '0');
-	//	ft_putchar(stack_a[1] + '0');
-	//	ft_putchar(stack_a[2] + '0');
-		return 0;
 	}
 	else
 		return (1);

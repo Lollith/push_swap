@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:51:03 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/09 16:43:29 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/10 12:03:56 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_order(int *tab, int size)
 	{
 		if (tab[i + 1] < tab [i])
 		{
-			write(1, "besoin de trier\n",16);
+	//		write(1, "besoin de trier\n",16);
 			return (1);
 		}
        		i++;
