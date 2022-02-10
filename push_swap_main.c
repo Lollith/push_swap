@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/09 17:22:55 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/10 11:56:50 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -15,6 +15,8 @@ void ft_putchar(int a )
 {
 	write(1,&a ,1);
 }
+
+
 
 // libft a ajouter/ atoi a supprimer
 int	ft_atoi(const char *nptr)
@@ -49,6 +51,7 @@ int	main (int argc, char **argv)
 	int 	stack_input[argc - 1];
 	//	int	stack_b[argc - 1];
 	int	i;
+	//int	j;
 
 	i = 1;
 
@@ -75,28 +78,49 @@ int	main (int argc, char **argv)
 
 	//  si 3 cHiffres
 	i = 0;
+	//j = 0;
 	if (argc == 4)
 	{
-		int *(*tab_ft[3])(int *, int);
+		int	*(*tab_ft[3])(int *, int);
 		tab_ft[0] = &ft_s;
 		tab_ft[1] = &ft_r;
 		tab_ft[2] = &ft_rr;
-		while ((check_order(stack_a, 3))&& i <3)
+
+		char	*tab_name[3];
+		tab_name [0] = "sa\n";
+		tab_name [1] = "ra\n";
+		tab_name [2] = "rra\n";
+		
+		while ((check_order(stack_a, 3)) && i < 3)
 		{
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
 			((*tab_ft[i])(stack_a, 3));
 			i++;
-			
-		ft_putchar (stack_a[0] + '0');
-		ft_putchar (stack_a[1] + '0');
-		ft_putchar (stack_a[2] + '0');
+				
+		ft_putchar(stack_a[0] + '0');
+		ft_putchar(stack_a[1] + '0');
+		ft_putchar(stack_a[2] + '0');
 
 		}
+		i = 1;
+		while ((check_order(stack_a, 3)) && i < 5)
+		{
+			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
+			((*tab_ft[0])(stack_a, 3));
+			((*tab_ft[i])(stack_a, 3));
+			i++;
+
+		ft_putchar(stack_a[0] + '0');
+		ft_putchar(stack_a[1] + '0');
+		ft_putchar(stack_a[2] + '0');
+		}
+		printf("%s", tab_name[i - 1]); // libft => ft_printf
+					
 		//ft_rr(stack_a, 3);
 		// ft_sort_3(stack_a, 3);
-		ft_putchar (stack_a[0] + '0');
-		ft_putchar (stack_a[1] + '0');
-		ft_putchar (stack_a[2] + '0');
+	//	ft_putchar(stack_a[0] + '0');
+	//	ft_putchar(stack_a[1] + '0');
+	//	ft_putchar(stack_a[2] + '0');
 		return 0;
 	}
 	else
