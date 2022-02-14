@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/11 16:44:21 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/14 14:53:50 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -51,10 +51,11 @@ int	main (int argc, char **argv)
 	int	stack_a[argc - 1];
 //	int stack_input[3];
 	int 	stack_input[argc - 1];
-	//	int	stack_b[argc - 1];
+	int	stack_b[argc - 1];
+
 	int	i;
 	int	j;
-
+	int 	k;
 	i = 1;
 	if (argc < 2 )
 		return (0);
@@ -62,7 +63,7 @@ int	main (int argc, char **argv)
 	//recup arg ds tableau a
 	while(argv[i] && i < argc)
 	{
-		stack_input[i - 1] =ft_atoi(argv[i]);
+		stack_input[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
 //	while (stack_input[t])
@@ -72,8 +73,18 @@ int	main (int argc, char **argv)
 //	}
 	/// si 1 chiffre ou aucun chiffre?
 
-	//si 2 chiffres
+	//initialisation
 	ft_memcpy (stack_a, stack_input, sizeof(int) * (argc - 1));
+	k = 0;
+	while (k < argc -1)
+	{
+		stack_b[k] = '\0';
+		printf("%d\n", stack_b[k]); 
+		k++;
+		
+	}	
+
+	//si 2 chiffres
 	if (argc == 3)		
 	{
 		if (check_order(stack_a, argc - 1))   
@@ -103,25 +114,25 @@ int	main (int argc, char **argv)
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
 			((*tab_ft[i])(stack_a, 3));
 			
-			ft_putchar(stack_a[0] + '0');
-			ft_putchar(stack_a[1] + '0');
-			ft_putchar(stack_a[2] + '0');
-			write(1, "\n", 1);
+		//	ft_putchar(stack_a[0] + '0');
+		//	ft_putchar(stack_a[1] + '0');
+		//	ft_putchar(stack_a[2] + '0');
+		//	write(1, "\n", 1);
 			if(check_order(stack_a, 3) && j < 3)
 			{
 				e ++;		
 				((*tab_ft[j])(stack_a, 3));
 				
-				ft_putchar(stack_a[0] + '0');
-				ft_putchar(stack_a[1] + '0');
-				ft_putchar(stack_a[2] + '0');
+		//		ft_putchar(stack_a[0] + '0');
+		//		ft_putchar(stack_a[1] + '0');
+		//		ft_putchar(stack_a[2] + '0');
 				
-				write(1, "\n", 1);
+		//		write(1, "\n", 1);
 	
 				if (j  == 1) 
 					i--;
 				else 
-					j = -1;
+					j--;
 				j++;
 			}
 			i++;
@@ -132,12 +143,17 @@ int	main (int argc, char **argv)
 				i++;
 			printf("%s", tab_name[i - 1]); // libft => ft_printf
 		}
-		else
+		else if ((e == 1) && i == 0)
 		{	
 			printf("%s", tab_name[i]); // libft => ft_printf
 			printf("%s", tab_name[j - 1]); // libft => ft_printf
 		}
-	
+		
+		else if (e == 1 &&  i ==1)
+		{
+			printf("%s", tab_name[i - 1]); // libft => ft_printf
+			printf("%s", tab_name[j]); // libft => ft_printf
+		}
 	}
 	else
 		return (1);
