@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 14:53:50 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/14 15:11:59 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -17,7 +17,7 @@ void ft_putchar(int a )
 }
 
 
-
+/*
 // libft a ajouter/ atoi a supprimer
 int	ft_atoi(const char *nptr)
 {
@@ -44,18 +44,17 @@ int	ft_atoi(const char *nptr)
 	result = (result * neg);
 	return (result);
 }
-
+*/
 int	main (int argc, char **argv)
 {
 //	int stack_a[3];
-	int	stack_a[argc - 1];
+	char	*stack_a[argc - 1];
 //	int stack_input[3];
-	int 	stack_input[argc - 1];
-	int	stack_b[argc - 1];
+	char 	*stack_input[argc - 1];
+	char	*stack_b[argc - 1];
 
 	int	i;
 	int	j;
-	int 	k;
 	i = 1;
 	if (argc < 2 )
 		return (0);
@@ -63,7 +62,8 @@ int	main (int argc, char **argv)
 	//recup arg ds tableau a
 	while(argv[i] && i < argc)
 	{
-		stack_input[i - 1] = ft_atoi(argv[i]);
+		//stack_input[i - 1] = ft_atoi(argv[i]);
+		stack_input[i - 1] = argv [i];
 		i++;
 	}
 //	while (stack_input[t])
@@ -75,19 +75,12 @@ int	main (int argc, char **argv)
 
 	//initialisation
 	ft_memcpy (stack_a, stack_input, sizeof(int) * (argc - 1));
-	k = 0;
-	while (k < argc -1)
-	{
-		stack_b[k] = '\0';
-		printf("%d\n", stack_b[k]); 
-		k++;
 		
-	}	
 
 	//si 2 chiffres
 	if (argc == 3)		
 	{
-		if (check_order(stack_a, argc - 1))   
+		if (check_order(*stack_a, argc - 1))   
 			write(1, "sa\n", 3);
 		else 
 			return (0);	
@@ -108,7 +101,7 @@ int	main (int argc, char **argv)
 		tab_name [0] = "sa\n";
 		tab_name [1] = "ra\n";
 		tab_name [2] = "rra\n";
-		while ((check_order(stack_a, 3)) && i < 3 )
+		while ((check_order(*stack_a, 3)) && i < 3 )
 		{
 			e = 0;
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
