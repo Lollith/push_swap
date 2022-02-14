@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:51:03 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/10 12:03:56 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/14 15:32:35 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	*ft_memcpy(void	*dest, const void *src, size_t n)// remplacer par libft
 //
 //
 //check ordre
-int	check_order(int *tab, int size)
+int	check_order(char *tab, int size)
 {
 	int	i;
 	

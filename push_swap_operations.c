@@ -6,13 +6,13 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:17:48 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 14:31:18 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/14 15:37:37 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_s(int *stack, int size)
+char	*ft_s(char *stack, int size)
 {
 	int	tmp;
     (void) size;
@@ -24,7 +24,7 @@ int	*ft_s(int *stack, int size)
 	return (stack);
 }
 
-int	*ft_r(int *stack,int size)
+char	*ft_r(char *stack,int size)
 {	
 	int	tmp;
 	int	i;
@@ -41,7 +41,7 @@ int	*ft_r(int *stack,int size)
 	return (stack);
 }
 
-int 	*ft_rr(int *stack, int size)
+char	*ft_rr(char *stack, int size)
 {
 	int	tmp;
 	int	i;
