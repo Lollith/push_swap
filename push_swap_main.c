@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 14:53:50 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/15 16:53:04 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -51,11 +51,11 @@ int	main (int argc, char **argv)
 	int	stack_a[argc - 1];
 //	int stack_input[3];
 	int 	stack_input[argc - 1];
-	int	stack_b[argc - 1];
+//	int	stack_b[argc - 1];
+	
 
 	int	i;
 	int	j;
-	int 	k;
 	i = 1;
 	if (argc < 2 )
 		return (0);
@@ -75,14 +75,7 @@ int	main (int argc, char **argv)
 
 	//initialisation
 	ft_memcpy (stack_a, stack_input, sizeof(int) * (argc - 1));
-	k = 0;
-	while (k < argc -1)
-	{
-		stack_b[k] = '\0';
-		printf("%d\n", stack_b[k]); 
-		k++;
 		
-	}	
 
 	//si 2 chiffres
 	if (argc == 3)		
@@ -155,6 +148,15 @@ int	main (int argc, char **argv)
 			printf("%s", tab_name[j]); // libft => ft_printf
 		}
 	}
+
+	
+	if (argc > 4)
+	{
+	//	find_divider(find_max(stack_a, argc - 1));
+		ft_nbr_unit_bin( stack_a [0]);	
+		//ft_radix(stack_a, stack_b);
+	}
+
 	else
 		return (1);
 

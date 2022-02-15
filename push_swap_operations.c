@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:17:48 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 14:31:18 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/15 13:59:45 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,12 @@ int 	*ft_rr(int *stack, int size)
 	return (stack);
 }
 
-//int	*ft_p(int *stack1, int stack2, int size)
-//{
-//	int	i;
-//	int	j;
-//
-//	i = 0;
-//	j = 0;
-
-//	while (stack1[i] == NULL);
-//	{
-//}
+int	ft_push(int *stack1, int *stack2, int size)
+{
+	static int	compt;
+	
+	stack1[compt] = stack2[size - 1 - compt];
+	return (0);	
+}
 
 
