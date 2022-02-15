@@ -6,15 +6,15 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 15:46:15 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/15 11:47:44 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
 #include "push_swap.h"
-void ft_putchar(int a )
-{
-	write(1,&a ,1);
-}
+//void ft_putchar(int a )
+//{
+//	write(1,&a ,1);
+//}
 
 
 /*
@@ -64,6 +64,7 @@ int	main (int argc, char **argv)
 	{
 		//stack_input[i - 1] = ft_atoi(argv[i]);
 		stack_input[i - 1] = argv [i];
+		stack_a[ i - 1] = argv [i];
 		i++;
 	}
 //	while (stack_input[t])
@@ -75,12 +76,14 @@ int	main (int argc, char **argv)
 
 	//initialisation
 	ft_memcpy (stack_a, stack_input, sizeof(int) * (argc - 1));
-		
+//	ft_putstr(stack_a[0]);		
+//	ft_putstr(stack_a[1]);		
+
 
 	//si 2 chiffres
 	if (argc == 3)		
 	{
-		if (check_order(*stack_a, argc - 1))   
+		if (check_order(stack_a, argc - 1))   
 			write(1, "sa\n", 3);
 		else 
 			return (0);	
@@ -93,32 +96,32 @@ int	main (int argc, char **argv)
 	if (argc == 4)
 	{	
 		
-		char	*(*tab_ft[3])(char *, int);
-		tab_ft[0] = &ft_s;
-		tab_ft[1] = &ft_r;
-		tab_ft[2] = &ft_rr;
+		char	*(*tab_ft[3])(char **, int);
+		tab_ft[0] = *(ft_s);
+		tab_ft[1] = *ft_r;
+		tab_ft[2] = *ft_rr;
 		char	*tab_name[3];
 		tab_name [0] = "sa\n";
 		tab_name [1] = "ra\n";
 		tab_name [2] = "rra\n";
-		while ((check_order(*stack_a, 3)) && i < 3 )
+		while ((check_order(stack_a, 3)) && i < 3 )
 		{
 			e = 0;
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
-			((*tab_ft[i])(*stack_a, 3));
+			((*tab_ft[i])(stack_a, 3));
 			
-			ft_putchar(*stack_a[0]);
-			ft_putchar(*stack_a[1]);
-			ft_putchar(*stack_a[2]);
+			ft_putstr(stack_a[0]);
+			ft_putstr(stack_a[1]);
+			ft_putstr(stack_a[2]);
 			write(1, "\n", 1);
-			if(check_order(*stack_a, 3) && j < 3)
+			if(check_order(stack_a, 3) && j < 3)
 			{
 				e ++;		
-				((*tab_ft[j])(*stack_a, 3));
+				((*tab_ft[j])(stack_a, 3));
 				
-				ft_putchar(*stack_a[0]);
-				ft_putchar(*stack_a[1]);
-				ft_putchar(*stack_a[2]);
+				ft_putstr(stack_a[0]);
+				ft_putstr(stack_a[1]);
+				ft_putstr(stack_a[2]);
 				
 				write(1, "\n", 1);
 	

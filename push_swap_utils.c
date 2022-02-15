@@ -6,29 +6,29 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:51:03 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/14 15:32:35 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/15 11:17:40 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h> // printf
-
+#include <unistd.h> // a suprimer avec putchar
 // a suprimer avec libft
-//void    ft_putchar(int a)
-//{
- //   write (1,&a, 1);
-//}
-// a supprimer
-//void ft_putstr(char *s)
-//{
+void    ft_putchar(char a)
+{
+   write (1,&a, 1);
+}
 
- //   while (*s)
-  //  {
-    //    ft_putchar(*s);
-    ///    s++;
-//    }
-//}
-//
+// a supprimer
+void ft_putstr(char *s)
+{
+   while (*s)
+   {
+      ft_putchar(*s);
+      s++;
+   }
+}
+
 void	*ft_memcpy(void	*dest, const void *src, size_t n)// remplacer par libft
 {
 	unsigned int	i;
@@ -47,16 +47,19 @@ void	*ft_memcpy(void	*dest, const void *src, size_t n)// remplacer par libft
 //
 //
 //check ordre
-int	check_order(char *tab, int size)
+int	check_order(char **tab, int size)
 {
 	int	i;
 	
 	i = 0;
 	while (i < size - 1)
 	{
-		if (tab[i + 1] < tab [i])
+		if (*tab[i + 1] < *tab [i])
 		{
-	//		write(1, "besoin de trier\n",16);
+		//	ft_putchar(tab[i-1]);
+	////		ft_putstr( tab[0]);	
+
+			write(1, "besoin de trier\n",16);
 			return (1);
 		}
        		i++;
