@@ -57,7 +57,7 @@ int 	*ft_rr(int *stack, int size)
 //	write(1, "rra", 3);
 	return (stack);
 }
-
+//push stack1 ds debut stack 2
 int	ft_push(int *stack1, int *stack2, int size)
 {
 	static int	compt;

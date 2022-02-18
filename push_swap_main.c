@@ -51,7 +51,7 @@ int	main (int argc, char **argv)
 	int	stack_a[argc - 1];
 //	int stack_input[3];
 	int 	stack_input[argc - 1];
-//	int	stack_b[argc - 1];
+	int	stack_b[argc - 1];
 	
 
 	int	i;
@@ -150,11 +150,11 @@ int	main (int argc, char **argv)
 	}
 
 	
-	if (argc > 4)
+	if (argc == 5)
 	{
 	//	find_divider(find_max(stack_a, argc - 1));
-		ft_nbr_unit_bin( stack_a [0]);	
-		//ft_radix(stack_a, stack_b);
+		//ft_nbr_unit_bin( stack_a [0]);	
+		ft_radix(stack_a, stack_b, argc - 1);
 	}
 
 	else

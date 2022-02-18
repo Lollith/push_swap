@@ -32,5 +32,6 @@ int	check_order(int *tab, int size);
 int	find_max(int *stack, int size);
 int	find_divider(int max);
 int	ft_nbr_unit_bin(int nbr);
+int    *ft_radix(int *stack_a, int *stack_b, int size); 
 
 #endif

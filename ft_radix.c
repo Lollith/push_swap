@@ -15,53 +15,77 @@
 
 int	find_max(int *stack, int size)
 {
-	int	max;
-	int	i;
+    int	max;
+    int	i;
 
-	max = stack[0];
-	i = 1;
+    max = stack[0];
+    i = 1;
 
-	while (i < size)
-	{
-		if (max < stack[i])
-			max = stack[i];
-		i++;
-	}
-	//printf("%d", max);
-	return (max);
+    while (i < size)
+    {
+        if (max < stack[i])
+            max = stack[i];
+        i++;
+    }
+    //printf("%d", max);
+    return (max);
 }
 
 int	find_divider(int max)
 {
-	int	count_unit;
+    int	count_unit;
 
-	count_unit = 1;
-	
-	while (max > 9)
-	{
-		max = max / 10;
-		count_unit ++;
-	}
-//	printf("%d", count_unit);
-	return(count_unit);
+    count_unit = 1;
+
+    while (max > 9)
+    {
+        max = max / 10;
+        count_unit ++;
+    }
+    //	printf("%d", count_unit);
+    return(count_unit);
 }
 
 int	ft_nbr_unit_bin(int nbr)
 {
-	int	 nbr_u_b;	
-	if (nbr > 9)
-		nbr_u_b = ft_nbr_unit_bin( nbr % 10);
-	printf("unit:%d\n", nbr_u_b);
-	if ( nbr >= 2)
-		nbr_u_b = ft_nbr_unit_bin ( nbr / 2);	
+    int	 nbr_u_b;	
+    nbr_u_b = 0;
+    if (nbr > 9)
+    {
+        nbr_u_b = ft_nbr_unit_bin( nbr % 10);
+    }
+    //printf("unit:%d\n", nbr_u_b);
 
-	printf("bin:%d\n", nbr_u_b);
-		
-	return (nbr);
+    else    
+    {
+        nbr_u_b = nbr;
+        nbr_u_b = nbr_u_b % 2;
+    }
+    printf("bin:%d\n", nbr_u_b);
+
+    return (nbr_u_b);
 }
 
+int	*ft_radix(int *stack_a, int *stack_b, int size)
+{
+    int i;
 
-//char	*ft_radix(char *stack_a, char *stack_b)
-//{
+    i = 0;
+    while (stack_a[i])
+    {
+        if(ft_nbr_unit_bin(stack_a[i] == 1))
+            ft_r (stack_a, size);
+        else
+            ft_push(stack_a, stack_b, size);
+        i++;
+    }
 
-//}
+    i = 0;
+    while (stack_a[i])
+    {
+        printf("stacka %d", stack_a[i]);
+        i++;
+    }
+    return (stack_a);
+}
+
