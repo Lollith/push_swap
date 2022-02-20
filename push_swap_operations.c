@@ -58,12 +58,16 @@ int 	*ft_rr(int *stack, int size)
 	return (stack);
 }
 //push stack1 ds debut stack 2
-int	ft_push(int *stack1, int *stack2, int size)
+int	 *ft_push(int *stack1, int *stack2, int size)
 {
-	static int	compt;
+	static int	compt = 0;
 	
-	stack1[compt] = stack2[size - 1 - compt];
-	return (0);	
+	printf("satck1:%d\n", stack1[compt]);
+    stack2[size - 1 - compt] = stack1[compt];
+    stack1[compt]= 0;
+    compt ++;
+	printf("satck2:%d\n", stack2[3]);
+	return (stack2 );	
 }
 
 

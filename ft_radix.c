@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-
+/*
 int	find_max(int *stack, int size)
 {
     int	max;
@@ -45,7 +45,7 @@ int	find_divider(int max)
     //	printf("%d", count_unit);
     return(count_unit);
 }
-
+*/
 int	ft_nbr_unit_bin(int nbr)
 {
     int	 nbr_u_b;	
@@ -71,21 +71,34 @@ int	*ft_radix(int *stack_a, int *stack_b, int size)
     int i;
 
     i = 0;
-    while (stack_a[i])
+    while (i < size)
     {
-        if(ft_nbr_unit_bin(stack_a[i] == 1))
-            ft_r (stack_a, size);
+        if(ft_nbr_unit_bin(stack_a[i]) == 1)
+        {
+            stack_a = ft_r (stack_a, size);
+            write (1, "ra\n", 3);
+        }
         else
-            ft_push(stack_a, stack_b, size);
+        {
+           stack_b = ft_push(stack_a, stack_b, size);
+            write (1, "pb\n",3); // envoi top a en b
+        }
         i++;
     }
 
-    i = 0;
-    while (stack_a[i])
-    {
-        printf("stacka %d", stack_a[i]);
-        i++;
-    }
+     printf("stacka %d\n", stack_a[0]);
+     printf("stacka %d\n", stack_a[1]);
+     printf("stacka %d\n", stack_a[2]);
+     printf("stacka %d\n", stack_a[3]);
+    
+    
+     printf("stackb %d\n", stack_b[0]);
+     printf("stackb %d\n", stack_b[1]);
+     printf("stackb %d\n", stack_b[2]);
+     printf("stackb %d\n", stack_b[3]);
+    
+    
+
     return (stack_a);
 }
 

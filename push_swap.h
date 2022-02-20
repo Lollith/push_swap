@@ -19,7 +19,7 @@
 int	*ft_s(int *stack, int size);
 int	*ft_r(int *stack, int size);
 int	*ft_rr(int *stack, int size);
-int	ft_push(int *stack1, int *stack2, int size);
+int	*ft_push(int *stack1, int *stack2, int size);
 
 //void	ft_sort_3(int *stack, int size);
 

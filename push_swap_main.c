@@ -154,8 +154,23 @@ int	main (int argc, char **argv)
 	{
 	//	find_divider(find_max(stack_a, argc - 1));
 		//ft_nbr_unit_bin( stack_a [0]);	
+    
+       printf("stackb %d\n", stack_b[0]);
+         printf("stackb %d\n", stack_b[1]);
+         printf("stackb %d\n", stack_b[2]);
+         printf("stackb %d\n", stack_b[3]);
+
+         printf("stacka %d\n", stack_a[0]);
+         printf("stacka %d\n", stack_a[1]);
+         printf("stacka %d\n", stack_a[2]);
+         printf("stacka %d\n", stack_a[3]);
+
+
+
 		ft_radix(stack_a, stack_b, argc - 1);
-	}
+            
+
+    }
 
 	else
 		return (1);
