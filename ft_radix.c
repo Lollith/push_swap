@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:42:15 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/15 16:59:59 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:35:29 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,26 +66,57 @@ int	ft_nbr_unit_bin(int nbr)
     return (nbr_u_b);
 }
 
+
+
+//envoi tuout le b en a apres tri
+
+void  push_ba (int *stack_b, int *stack_a, int size)
+{
+	int i;
+	i = 0;
+
+	while (stack_a[i] == 0)
+		i++;
+	//printf("i:%d", i);
+	while (i < size)
+	{
+		ft_push(&stack_b, &stack_a, size, i );
+		i++;
+     	//printf("stacka %d\n", stack_a[i]);
+	}
+}
+
 int	*ft_radix(int *stack_a, int *stack_b, int size)
 {
-    int i;
-
-    i = 0;
-    while (i < size)
+   	int i;
+	int count;
+  	 i = 0;
+	 count = 0;
+    while (count < size)
     {
         if(ft_nbr_unit_bin(stack_a[i]) == 1)
         {
-            stack_a = ft_r (stack_a, size);
+            stack_a = ft_r (stack_a, size, i );
             write (1, "ra\n", 3);
+			i--;
+			
+		    // printf("stackaa %d\n", stack_a[i]);
+     	//	printf("stackbb %d\n", stack_b[size -1]);
         }
         else
         {
-           stack_b = ft_push(stack_a, stack_b, size);
+             ft_push(&stack_a, &stack_b, size, i);
+
+		  //   printf("stackaa %d\n", stack_a[i]);
+     	//	printf("stackbb %d\n", stack_b[size -1]);
             write (1, "pb\n",3); // envoi top a en b
         }
+		count ++;
         i++;
-    }
+	}
+		push_ba (stack_b, stack_a, size);	
 
+	
      printf("stacka %d\n", stack_a[0]);
      printf("stacka %d\n", stack_a[1]);
      printf("stacka %d\n", stack_a[2]);

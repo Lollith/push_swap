@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/15 16:53:04 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:35:25 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -93,7 +93,7 @@ int	main (int argc, char **argv)
 	if (argc == 4)
 	{	
 		
-		int	*(*tab_ft[3])(int *, int);
+		int	*(*tab_ft[3])(int *, int, int);
 		tab_ft[0] = &ft_s;
 		tab_ft[1] = &ft_r;
 		tab_ft[2] = &ft_rr;
@@ -105,7 +105,7 @@ int	main (int argc, char **argv)
 		{
 			e = 0;
 			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
-			((*tab_ft[i])(stack_a, 3));
+			((*tab_ft[i])(stack_a, 3, 0));
 			
 		//	ft_putchar(stack_a[0] + '0');
 		//	ft_putchar(stack_a[1] + '0');
@@ -114,7 +114,7 @@ int	main (int argc, char **argv)
 			if(check_order(stack_a, 3) && j < 3)
 			{
 				e ++;		
-				((*tab_ft[j])(stack_a, 3));
+				((*tab_ft[j])(stack_a, 3,0));
 				
 		//		ft_putchar(stack_a[0] + '0');
 		//		ft_putchar(stack_a[1] + '0');

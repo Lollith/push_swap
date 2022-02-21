@@ -6,16 +6,17 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:17:48 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/15 13:59:45 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/21 16:35:27 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_s(int *stack, int size)
+int	*ft_s(int *stack, int size, int i)
 {
 	int	tmp;
     (void) size;
+	(void) i;
 
 	tmp = stack[0];
 	stack[0] = stack[1]; 
@@ -24,14 +25,12 @@ int	*ft_s(int *stack, int size)
 	return (stack);
 }
 
-int	*ft_r(int *stack,int size)
+int	*ft_r(int *stack,int size , int i)
 {	
 	int	tmp;
-	int	i;
-	
-	i = 0;
+
 	tmp = stack[i];
-	while (i < size - 1)
+	while (i < size -1 )
     {
         stack [i] = stack[i + 1];
         i++;
@@ -41,12 +40,10 @@ int	*ft_r(int *stack,int size)
 	return (stack);
 }
 
-int 	*ft_rr(int *stack, int size)
+int 	*ft_rr(int *stack, int size, int i)
 {
 	int	tmp;
-	int	i;
 
-	i = 0;
 	tmp = stack[size - 1];
 	while (i < size - 1)
     {
@@ -58,16 +55,22 @@ int 	*ft_rr(int *stack, int size)
 	return (stack);
 }
 //push stack1 ds debut stack 2
-int	 *ft_push(int *stack1, int *stack2, int size)
+void	ft_push(int **pt_stack1, int **pt_stack2, int size, int count)
 {
-	static int	compt = 0;
 	
-	printf("satck1:%d\n", stack1[compt]);
-    stack2[size - 1 - compt] = stack1[compt];
-    stack1[compt]= 0;
-    compt ++;
-	printf("satck2:%d\n", stack2[3]);
-	return (stack2 );	
+	int *stack1;
+	int *stack2;
+	
+	
+	stack1 = *pt_stack1;
+	stack2 = *pt_stack2;
+//	printf("satck1:%d\n", stack1[count]);
+    stack2[size - 1 - count] = stack1[count];
+    stack1[count] = 0;
+//	printf("satck1:%d\n", stack1[count]);
+//	printf("satck2:%d\n", stack2[size - 1 - count]);
+	*pt_stack1 = stack1;
+	*pt_stack2 = stack2;
 }
 
 
