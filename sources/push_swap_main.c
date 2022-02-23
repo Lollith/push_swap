@@ -45,15 +45,13 @@ int	ft_atoi(const char *nptr)
 	return (result);
 }
 
+
 int	main (int argc, char **argv)
 {
-//	int stack_a[3];
 	int	stack_a[argc - 1];
-//	int stack_input[3];
-	int 	stack_input[argc - 1];
+	int input[argc - 1];
 	int	stack_b[argc - 1];
 	
-
 	int	i;
 	int	j;
 	i = 1;
@@ -63,23 +61,14 @@ int	main (int argc, char **argv)
 	//recup arg ds tableau a
 	while(argv[i] && i < argc)
 	{
-		stack_input[i - 1] = ft_atoi(argv[i]);
+		input[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
-//	while (stack_input[t])
-//	{
-//		printf("%d\n", stack_input[t]);
-//		t++;
-//	}
-	/// si 1 chiffre ou aucun chiffre?
-
-	//initialisation
-	ft_memcpy (stack_a, stack_input, sizeof(int) * (argc - 1));
 		
-
 	//si 2 chiffres
-	if (argc == 3)		
+    if (argc == 3)		
 	{
+	    ft_memcpy (stack_a, input, sizeof(int) * (argc - 1));
 		if (check_order(stack_a, argc - 1))   
 			write(1, "sa\n", 3);
 		else 
@@ -90,9 +79,9 @@ int	main (int argc, char **argv)
 	i = 0;
 	j = 1;
 	int e ;
-	if (argc == 4)
+    if (argc == 4)
 	{	
-		
+	    ft_memcpy (stack_a, input, sizeof(int) * (argc - 1));
 		int	*(*tab_ft[3])(int *, int, int);
 		tab_ft[0] = &ft_s;
 		tab_ft[1] = &ft_r;
@@ -104,13 +93,9 @@ int	main (int argc, char **argv)
 		while ((check_order(stack_a, 3)) && i < 3 )
 		{
 			e = 0;
-			ft_memcpy (stack_a, stack_input, sizeof(int) * 3);
+			ft_memcpy (stack_a, input, sizeof(int) * 3);
 			((*tab_ft[i])(stack_a, 3, 0));
 			
-		//	ft_putchar(stack_a[0] + '0');
-		//	ft_putchar(stack_a[1] + '0');
-		//	ft_putchar(stack_a[2] + '0');
-		//	write(1, "\n", 1);
 			if(check_order(stack_a, 3) && j < 3)
 			{
 				e ++;		
@@ -148,43 +133,43 @@ int	main (int argc, char **argv)
 			printf("%s", tab_name[j]); // libft => ft_printf
 		}
 	}
-
-	
-	if (argc == 5)
+//apres 4 chiffres
+    int input_order[argc - 1];	
+	if (argc >= 5)
 	{
-	//	find_divider(find_max(stack_a, argc - 1));
-		//ft_nbr_unit_bin( stack_a [0]);	
-    
-       printf("stackb %d\n", stack_b[0]);
-         printf("stackb %d\n", stack_b[1]);
-         printf("stackb %d\n", stack_b[2]);
-         printf("stackb %d\n", stack_b[3]);
 
-         printf("stacka %d\n", stack_a[0]);
-         printf("stacka %d\n", stack_a[1]);
-         printf("stacka %d\n", stack_a[2]);
-         printf("stacka %d\n", stack_a[3]);
+	    ft_memcpy (stack_a, input, sizeof(int) * (argc - 1));
+		if ((!check_order(stack_a, argc -1))) 
+        {   
+            return 0;
+        }
+        else
+        {
+            ft_memcpy (input_order, input, sizeof(int) * (argc - 1));
+            bubble_sort (input_order, argc - 1);
+        
+            i = 0;
+            while(i < argc - 1)
+            {
+                j= 0;
+                while (j < argc - 1)
+                {
+                    if (input[i] == input_order [j])
+                        stack_a[i] = j;
+                    j++;
+                }   
+                i++;
+            }
 
-
-
-		ft_radix(stack_a, stack_b, argc - 1);
-            
-
+            /*      printf("stacka %d\n", stack_a[0]);
+                 printf("stacka %d\n", stack_a[1]);
+                 printf("stacka %d\n", stack_a[2]);
+                printf("stacka %d\n", stack_a[3]);
+                printf("stacka %d\n", stack_a[4]);
+*/
+        		ft_radix(stack_a, stack_b, argc - 1);
+        }   
     }
 
-	else
-		return (1);
-
-
-	//si 4 ou 5 chiffres
-
-
-	//affiche stack [a]//a supprimer
-	//	i = 0;
-	//	while(i < argc - 1)
-	//	{
-	//		printf("%d ", stack_a[i]);
-	//		i++;
-	//	}	return (0);
 	return (0);
 }

@@ -15,15 +15,14 @@ NAME		= push_swap
 SRCS_PATH	= ./sources/
 
 SRCS		= $(addprefix $(SRCS_PATH), push_swap_main.c \
-		  ft_radix.c \
-		  ft_push_swap_utils.c \
-		  ft_push_swap_operations.c
+			ft_radix.c \
+			push_swap_utils.c \
+			push_swap_operations.c)
 
 OBJS		= $(SRCS:.c=.o)
 
 DEPS		= $(SRCS:.c=.d)
 
-LIBFT		=
 
 CC		= gcc
 
@@ -35,13 +34,14 @@ all:		$(NAME)
 
 
 $(NAME):	$(OBJS)
-		$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+			$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 %.o:		%.c
-		$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+			$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 
-clean:		rm -f $(OBJS) $(DEPS)
+clean:
+		rm -f $(OBJS) $(DEPS)
 
 fclean:		clean
 		rm -f $(NAME)
