@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:00:21 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/21 16:35:23 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/24 12:42:38 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	*ft_r(int *stack, int size, int i);
 int	*ft_rr(int *stack, int size, int i);
 void ft_push(int **stack1, int **stack2, int size, int count);
 void push_ba (int *stack_b, int *stack_a, int size);
+void	ft_pa(int **stack1, int **stack2, int size, int count);
 
 //void	ft_sort_3(int *stack, int size);
 

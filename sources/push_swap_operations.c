@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/* *****:w********************************************************************* */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap_operations.c                             :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:17:48 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/21 16:35:27 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:49:55 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int 	*ft_rr(int *stack, int size, int i)
 //	write(1, "rra", 3);
 	return (stack);
 }
-//push stack1 ds debut stack 2
+//push stack1 ds debut stack 2 pb
 void	ft_push(int **pt_stack1, int **pt_stack2, int size, int count)
 {
 	
@@ -65,12 +65,24 @@ void	ft_push(int **pt_stack1, int **pt_stack2, int size, int count)
 	stack1 = *pt_stack1;
 	stack2 = *pt_stack2;
 //	printf("satck1:%d\n", stack1[count]);
-    stack2[size - 1 - count] = stack1[count];
-    stack1[count] = 0;
+ 	stack2[size - 1 - count] = stack1[count];
+   	stack1[count] = 0;
 //	printf("satck1:%d\n", stack1[count]);
 //	printf("satck2:%d\n", stack2[size - 1 - count]);
 	*pt_stack1 = stack1;
 	*pt_stack2 = stack2;
 }
 
+//push pa
+void	ft_pa(int **pt_stack1, int **pt_stack2, int size, int count)
+{
+	int *stack1;
+	int *stack2;
 
+	stack1 = *pt_stack1;
+	stack2 = *pt_stack2;
+	stack1[count] = stack2[size - 1 - count];
+	stack2[size - 1 - count] = 0;
+	*pt_stack1 =stack1;
+	*pt_stack2= stack2;
+}

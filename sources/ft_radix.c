@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:42:15 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/21 16:35:29 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:50:14 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,14 @@ void  push_ba (int *stack_b, int *stack_a, int size)
 
     while (stack_a[i] == 0 && i < size)
         i++;
-    //printf("i:%d", i);
-    while (i - 1  < size)
+//    printf("i:%d\n", i);
+    while (i > 0)
     {
-        ft_push(&stack_b, &stack_a, size, i-1 );
+        ft_pa(&stack_a, &stack_b, size, i -  1 );
         write(1, "pa\n", 3);
-        i++;
-        //printf("stacka %d\n", stack_a[i]);
+        //printf("stacka %d\n", stack_a[i-1]);
+
+        i--;
     }
 }
 
@@ -113,7 +114,7 @@ int	*ft_radix(int *stack_a, int *stack_b, int size)
                 }
                 j++;
                 count++;
- /*       printf("stacka %d\n", stack_a[0]);
+        /*printf("stacka %d\n", stack_a[0]);
         printf("stacka %d\n", stack_a[1]);
         printf("stacka %d\n", stack_a[2]);
         printf("stacka %d\n", stack_a[3]);
@@ -128,8 +129,6 @@ int	*ft_radix(int *stack_a, int *stack_b, int size)
             }
             i++;
             push_ba (stack_b, stack_a, size);
-            if((!check_order(stack_a, size))) 
-                    return (stack_a);
     /*    printf("stacka %d\n", stack_a[0]);
         printf("stacka %d\n", stack_a[1]);
         printf("stacka %d\n", stack_a[2]);
@@ -142,6 +141,8 @@ int	*ft_radix(int *stack_a, int *stack_b, int size)
         printf("stackb %d\n", stack_b[3]);
         printf("stackb %d\n\n", stack_b[4]);
      */
+            if((!check_order(stack_a, size))) 
+                    return (stack_a);
         }
 
       /* printf("stacka %d\n", stack_a[0]);

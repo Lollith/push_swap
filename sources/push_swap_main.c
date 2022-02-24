@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/21 16:35:25 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/24 13:48:00 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -161,12 +161,12 @@ int	main (int argc, char **argv)
                 i++;
             }
 
-            /*      printf("stacka %d\n", stack_a[0]);
+            /*     printf("stacka %d\n", stack_a[0]);
                  printf("stacka %d\n", stack_a[1]);
                  printf("stacka %d\n", stack_a[2]);
                 printf("stacka %d\n", stack_a[3]);
-                printf("stacka %d\n", stack_a[4]);
-*/
+                printf("stacka %d\n", stack_a[4]);*/
+
         		ft_radix(stack_a, stack_b, argc - 1);
         }   
     }
