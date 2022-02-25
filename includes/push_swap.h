@@ -26,11 +26,16 @@ void	ft_pa(int **stack1, int **stack2, int size, int count);
 //void	ft_sort_3(int *stack, int size);
 
 int	ft_atoi(const char *nptr);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
 
 int	check_order(int *tab, int size);
-
 void bubble_sort( int *tab, int size);
+
+int *ft_indexing(int *input, int *stack_a, int size);
+
+int *ft_tab_ft(int k, int *stack_a);
+void    ft_3_sort (int *stack_a);
+void    ft_3_sort_print(int i,int j, int e);
 int	find_max(int *stack, int size);
 int	ft_nbr_unit_bin(int nbr);
 int    *ft_radix(int *stack_a, int *stack_b, int size); 

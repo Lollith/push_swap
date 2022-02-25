@@ -17,7 +17,8 @@ SRCS_PATH	= ./sources/
 SRCS		= $(addprefix $(SRCS_PATH), push_swap_main.c \
 			ft_radix.c \
 			push_swap_utils.c \
-			push_swap_operations.c)
+			push_swap_operations.c \
+			ft_short_sort.c)
 
 OBJS		= $(SRCS:.c=.o)
 
