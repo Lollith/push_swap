@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -34,7 +34,7 @@ void bubble_sort( int *tab, int size);
 int *ft_indexing(int *input, int *stack_a, int size);
 
 int *ft_tab_ft(int k, int *stack_a);
-void    ft_3_sort (int *stack_a);
+void    ft_3_sort (int *stack_a, int *save);
 void    ft_3_sort_print(int i,int j, int e);
 int	find_max(int *stack, int size);
 int	ft_nbr_unit_bin(int nbr);
