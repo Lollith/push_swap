@@ -36,6 +36,7 @@ int *ft_indexing(int *input, int *stack_a, int size);
 int *ft_tab_ft(int k, int *stack_a);
 void    ft_3_sort (int *stack_a, int *save);
 void    ft_3_sort_print(int i,int j, int e);
+void	ft_5_sort(int *stack_a, int *stack_b, int size);
 int	find_max(int *stack, int size);
 int	ft_nbr_unit_bin(int nbr);
 int    *ft_radix(int *stack_a, int *stack_b, int size); 

@@ -68,13 +68,11 @@ int	main(int argc, char *argv[])
 		write(1, "sa\n", 3);
 	if (argc == 4) // 3 chiffres	
 	{
-		ft_memcpy(stack_a, save, sizeof(int) * 3);
+		ft_memcpy(save, stack_a, sizeof(int) * 3);
 		ft_3_sort(stack_a, save);
 	}
-	//4 et 5 chiffres
-	//if ((argc == 5)||(argc == 6)
-
-
+	if ((argc == 5)||(argc == 6)) // 4 et 5
+		ft_5_sort(stack_a, stack_b, argc -1);	
 	if (argc >= 7)//6 chiffres
 		ft_radix(stack_a, stack_b, argc - 1);
 }

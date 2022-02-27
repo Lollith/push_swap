@@ -35,8 +35,8 @@ void	ft_3_sort(int *stack_a, int *save)
 			j++;
 		}
 		i++;
-		ft_3_sort_print(i, j, e);
 	}
+		ft_3_sort_print(i, j, e);
 }
 
 void	ft_3_sort_print(int i, int j, int e)
@@ -60,10 +60,27 @@ void	ft_3_sort_print(int i, int j, int e)
 
 void	ft_5_sort(int *stack_a, int *stack_b, int size)
 {
-	ft_pa(&stack_a, &stack b, size);
-	ft_pa(&stack_a, &stack b, size);
-	ft_memcpy(stack_a, save, sizeof(int) * size);
-	ft_3_sort(stack_a,save);
-}
-
+	int save_3[3];;
+	int save [3];
+	while (stack_a[0] != 0)
+	{
+		ft_r(stack_a, size, 0);
+		write(1, "ra\n", 3);
+	}
+	ft_push(&stack_a, &stack_b, size, 0);
+	write (1, "pb\n", 3);
+	while (stack_a[0] != 1)
+	{
+		ft_r(stack_a, size, 0);
+		write(1, "ra\n", 3);
+	}
+	ft_push(&stack_a, &stack_b, size, 0);
+	write (1, "pb\n", 3);
+	save_3[0] = stack_a[2];
+	save_3[1] = stack_a[3];
+	save_3[2] = stack_a[4];
+	write (1, &save_3[0],1);
+	ft_3_sort(save_3,save);
+	write(1, "pa\n", 3);
+	write (1, "pa\n", 3);
 }
