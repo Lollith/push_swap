@@ -43,6 +43,37 @@ int	ft_atoi(const char *nptr)
 	result = (result * neg);
 	return (result);
 }
+int ft_isdigit(char c) // libft
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	ft_parsing( int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	if (ac <= 2)
+		return(0);
+	while ( i <= ac)
+	{
+		j = 0;
+		while (*av[j])
+		{
+
+				if (!ft_isdigit(av[i][j]))
+				{
+					printf("%c\n",av[i][j]);
+					printf("Error\n");
+				}
+				j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	main(int argc, char *argv[])
 {
@@ -51,21 +82,22 @@ int	main(int argc, char *argv[])
 	int	input[argc - 1];
 	int	i;
 	int	save[3];
-
+	
 	i = 1;
-	if (argc < 2 )
+	if (ft_parsing(argc, argv) == 0)
 		return (0);
 	while(argv[i] && i < argc)// recup arg ds input
 	{
 		input[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
+
 	if ((!check_order(input, argc - 1)))
 		return (0);
 	else
 		ft_indexing(input, stack_a, argc - 1);
 	if (argc == 3) // 2 chiffres		
-		write(1, "sa\n", 3);
+		printf("sa\n"); // change
 	if (argc == 4) // 3 chiffres	
 	{
 		ft_memcpy(save, stack_a, sizeof(int) * 3);
