@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 14:00:21 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/24 12:42:38 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/28 11:15:44 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>  //write
 #include <stdio.h> //printf
+#include <limits.h>
 
 int	*ft_s(int *stack, int size, int i);
 int	*ft_r(int *stack, int size, int i);

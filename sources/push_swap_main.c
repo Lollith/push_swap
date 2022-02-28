@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/24 13:48:00 by agouet           ###   ########.fr       */
+/*   Updated: 2022/02/28 13:08:36 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>  //printf
@@ -17,6 +17,15 @@ void	ft_putchar(int a )
 	write (1, &a, 1);
 }
 
+size_t	ft_strlen(const char *s)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 // libft a ajouter/ atoi a supprimer
 int	ft_atoi(const char *nptr)
 {
@@ -48,27 +57,94 @@ int ft_isdigit(char c) // libft
 	return (c >= '0' && c <= '9');
 }
 
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	while ((s1[i] == s2[i]) && s1[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
 int	ft_parsing( int ac, char **av)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	j = 0;
 	if (ac <= 2)
 		return(0);
-	while ( i <= ac)
+	while ( i < ac)
 	{
 		j = 0;
-		while (*av[j])
+		if (av[i][j] == '-' || av[i][j] == '+')
+			j++;
+		while (av[i][j])
 		{
 
 				if (!ft_isdigit(av[i][j]))
 				{
-					printf("%c\n",av[i][j]);
-					printf("Error\n");
+					printf("Error\n"); //ft_printf
+					return 0;
 				}
 				j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_double(char **av)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (av[i])
+	{
+		j = i + 1;
+		while (av[j])
+		{
+			if (!ft_strcmp(av[i], av[j]))
+			{
+				printf("error\n"); // ft_printf
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_max(char **av)
+{
+	int	i;
+	char	*max;
+
+	
+	i = 1;
+
+	while (av[i])
+	{
+		if (av[i][0] == '-')
+			max = "-2147483648";
+		else
+			max = "2147483647";
+		if (ft_strlen(av[i]) == ft_strlen(max))
+		{
+			if (ft_strcmp(av[i], max) > 0)
+			{
+				printf("error\n"); // ft_printf
+				return (0);
+			}
+		}
+		else if (ft_strlen(av[i]) > ft_strlen(max))
+		{
+			printf("error\n"); // ft_printf
+			return (0);
 		}
 		i++;
 	}
@@ -84,7 +160,7 @@ int	main(int argc, char *argv[])
 	int	save[3];
 	
 	i = 1;
-	if (ft_parsing(argc, argv) == 0)
+	if ((ft_parsing(argc, argv) == 0) || check_double( argv) == 0 || check_max(argv)==0)
 		return (0);
 	while(argv[i] && i < argc)// recup arg ds input
 	{
