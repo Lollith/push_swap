@@ -9,13 +9,7 @@
 /*   Updated: 2022/02/28 13:08:36 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>  //printf
 #include "push_swap.h"
-
-void	ft_putchar(int a )
-{
-	write (1, &a, 1);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -26,37 +20,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-// libft a ajouter/ atoi a supprimer
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	neg;
-	int	result;
-
-	i = 0;
-	neg = 1;
-	result = 0;
-	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ') && nptr[i])
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			neg = (-neg);
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
-	result = (result * neg);
-	return (result);
-}
-int ft_isdigit(char c) // libft
-{
-	return (c >= '0' && c <= '9');
-}
-
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -75,21 +38,20 @@ int	ft_parsing( int ac, char **av)
 
 	i = 1;
 	if (ac <= 2)
-		return(0);
-	while ( i < ac)
+		return (0);
+	while (i < ac)
 	{
 		j = 0;
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
 		while (av[i][j])
 		{
-
-				if (!ft_isdigit(av[i][j]))
-				{
-					printf("Error\n"); //ft_printf
-					return 0;
-				}
-				j++;
+			if (!ft_isdigit(av[i][j]))
+			{
+				ft_printf("Error\n");
+				return (0);
+			}
+			j++;
 		}
 		i++;
 	}
@@ -109,7 +71,7 @@ int	check_double(char **av)
 		{
 			if (!ft_strcmp(av[i], av[j]))
 			{
-				printf("error\n"); // ft_printf
+				ft_printf("error\n");
 				return (0);
 			}
 			j++;
@@ -121,12 +83,10 @@ int	check_double(char **av)
 
 int	check_max(char **av)
 {
-	int	i;
+	int		i;
 	char	*max;
 
-	
 	i = 1;
-
 	while (av[i])
 	{
 		if (av[i][0] == '-')
@@ -137,13 +97,13 @@ int	check_max(char **av)
 		{
 			if (ft_strcmp(av[i], max) > 0)
 			{
-				printf("error\n"); // ft_printf
+				ft_printf("error\n");
 				return (0);
 			}
 		}
 		else if (ft_strlen(av[i]) > ft_strlen(max))
 		{
-			printf("error\n"); // ft_printf
+			ft_printf("error\n");
 			return (0);
 		}
 		i++;
@@ -158,29 +118,28 @@ int	main(int argc, char *argv[])
 	int	input[argc - 1];
 	int	i;
 	int	save[3];
-	
+
 	i = 1;
-	if ((ft_parsing(argc, argv) == 0) || check_double( argv) == 0 || check_max(argv)==0)
+	if ((ft_parsing(argc, argv) == 0) || check_double(argv) == 0 || check_max(argv) == 0)
 		return (0);
-	while(argv[i] && i < argc)// recup arg ds input
+	while (argv[i] && i < argc)
 	{
 		input[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
-
 	if ((!check_order(input, argc - 1)))
 		return (0);
 	else
 		ft_indexing(input, stack_a, argc - 1);
-	if (argc == 3) // 2 chiffres		
-		printf("sa\n"); // change
-	if (argc == 4) // 3 chiffres	
+	if (argc == 3)
+		ft_printf("sa\n");
+	if (argc == 4)
 	{
 		ft_memcpy(save, stack_a, sizeof(int) * 3);
 		ft_3_sort(stack_a, save);
 	}
-	if ((argc == 5)||(argc == 6)) // 4 et 5
-		ft_5_sort(stack_a, stack_b, argc -1);	
-	if (argc >= 7)//6 chiffres
+	if ((argc == 5) || (argc == 6))
+		ft_5_sort(stack_a, stack_b, argc - 1);
+	if (argc >= 7)
 		ft_radix(stack_a, stack_b, argc - 1);
 }

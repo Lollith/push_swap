@@ -36,7 +36,7 @@ void	ft_3_sort(int *stack_a, int *save)
 		}
 		i++;
 	}
-		ft_3_sort_print(i, j, e);
+	ft_3_sort_print(i, j, e);
 }
 
 void	ft_3_sort_print(int i, int j, int e)
@@ -50,53 +50,46 @@ void	ft_3_sort_print(int i, int j, int e)
 	{
 		if (i == 0)
 			i++;
-		printf("%s\n", tab_name[i - 1]); // libft => ft_printf
+		ft_printf("%s\n", tab_name[i - 1]);
 	}
 	else if (e == 1 && i == 0)
-		printf("%s\n%s\n", tab_name[i], tab_name[j - 1]); // libft => ft_printf
+		ft_printf("%s\n%s\n", tab_name[i], tab_name[j - 1]);
 	else if (e == 1 && i == 1)
-		printf("%s\n%s\n", tab_name[i - 1], tab_name[j]); // libft => ft_printf
+		ft_printf("%s\n%s\n", tab_name[i - 1], tab_name[j]);
 }
 
 void	ft_5_sort(int *stack_a, int *stack_b, int size)
 {
-	int save_3[3];
-	int save [3];
+	int	save_3[3];
+	int	save [3];
+
 	while (stack_a[0] != 0)
 	{
 		ft_r(stack_a, size, 0);
-		printf("ra\n"); // change
+		ft_printf("ra\n");
 	}
-	ft_push(&stack_a, &stack_b, size, 0);
-	printf("pb\n");//change
+	ft_pb(&stack_a, &stack_b, size, 0);
+	ft_printf("pb\n");
 	if (size == 5)
 	{
 		while (stack_a[1] != 1)
 		{
 			ft_r(stack_a, size, 1);
-			printf("ra\n");//change
+			ft_printf("ra\n");
 		}
-		ft_push(&stack_a, &stack_b, size, 1);
-		printf("pb\n");//change
+		ft_pb(&stack_a, &stack_b, size, 1);
+		ft_printf("pb\n");
 	}
 	save_3[0] = stack_a[size - 3];
 	save_3[1] = stack_a[size - 2];
 	save_3[2] = stack_a[size - 1];
 	ft_memcpy(save, save_3, sizeof(int) * 3);
-	ft_3_sort(save_3,save);
+	ft_3_sort(save_3, save);
 	ft_pa (&stack_a, &stack_b, size, 1);
-	printf("pa\n");//change
-	if ( size == 5)
+	ft_printf("pa\n");
+	if (size == 5)
 	{
 		ft_pa (&stack_a, &stack_b, size, 0);
-		printf("pa\n");//change
+		ft_printf("pa\n");
 	}
-	
-
-/*		printf("stacka %d\n", stack_a[0]);
-		printf("stacka %d\n", stack_a[1]);
-		printf("stacka %d\n", stack_a[2]);
-		printf("stacka %d\n", stack_a[3]);
-		printf("stacka %d\n", stack_a[4]);
-*/
 }

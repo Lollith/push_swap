@@ -12,6 +12,8 @@
 
 NAME		= libftprintf.a
 
+LIB_DIR		= libft/
+
 LIBFT 		= libft/libft.a
 
 CFLAGS 		= -MMD -Wall -Wextra -Werror
@@ -33,7 +35,7 @@ $(LIBFT) :
 
 $(NAME) :	$(OBJS) $(LIBFT) 
 		@cp $(LIBFT) ./$(NAME)
-		@ar rcs $(NAME) $(OBJS) 
+		@ar rcs $(NAME) $(OBJS)
 		@echo "*Compilation : libftprintf.a"
 
 %.o:	 	%.c 

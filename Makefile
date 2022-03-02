@@ -14,6 +14,10 @@ NAME		= push_swap
 
 LIBFTPRINTF	= ft_printf/libftprintf.a
 
+LIB_DIR		= ./ft_printf/
+
+LIB_DIR_LFT	= ./ft_printf/libft
+
 SRCS_PATH	= ./sources/
 
 SRCS		= $(addprefix $(SRCS_PATH), push_swap_main.c \
@@ -26,12 +30,11 @@ OBJS		= $(SRCS:.c=.o)
 
 DEPS		= $(SRCS:.c=.d)
 
-
-CC		= gcc
+CC			= gcc
 
 CFLAGS		= -MMD -Wall -Wextra -Werror
 
-INC		= -I ./includes
+INC			= -I ./includes -I $(LIB_DIR) -I $(LIB_DIR_LFT) 
 
 all:		$(NAME)
 
@@ -39,7 +42,7 @@ all:		$(NAME)
 $(NAME):	$(OBJS) $(LIBFTPRINTF)
 		@cp $(LIBFTPRINTF) ./$(NAME)
 		@ar rcs $(NAME) $(OBJS)
-		@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+		@$(CC) $(FLAGS) -o $(NAME) $(OBJS) -L $(LIB_DIR) -lftprintf -L $(LIB_DIR_LFT) -lft
 		@echo "*Compilation : push_swap"
 
 %.o:		%.c
@@ -54,7 +57,7 @@ clean:
 
 fclean:		clean
 		@rm -f $(NAME)
-		@make --no-print-directory fclean -C ft_printf 
+		@make --no-print-directory fclean -C $(LIB_DIR)
 		@echo "*Remove push_swap.exe libftprintf.a"
 
 re:		fclean all

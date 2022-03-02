@@ -13,15 +13,14 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>  //write
-#include <stdio.h> //printf
-#include <limits.h>
+# include "ft_printf.h" 
+# include "libft.h"
 
 int	*ft_s(int *stack, int size, int i);
 int	*ft_r(int *stack, int size, int i);
 int	*ft_rr(int *stack, int size, int i);
-void ft_push(int **stack1, int **stack2, int size, int count);
-void push_ba (int *stack_b, int *stack_a, int size);
+void ft_pb(int **stack1, int **stack2, int size, int count);
+void push_back(int *stack_b, int *stack_a, int size);
 void	ft_pa(int **stack1, int **stack2, int size, int count);
 
 //void	ft_sort_3(int *stack, int size);
