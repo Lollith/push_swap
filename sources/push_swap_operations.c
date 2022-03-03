@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 11:17:48 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/24 13:49:55 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/03 13:00:41 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,31 +50,4 @@ int	*ft_rr(int *stack, int size, int i)
 	}
 	stack[0] = tmp;
 	return (stack);
-}
-
-void	ft_pb(int **pt_stack1, int **pt_stack2, int size, int count)
-{
-	int	*stack1;
-	int	*stack2;
-
-	stack1 = *pt_stack1;
-	stack2 = *pt_stack2;
-	stack2[size - 1 - count] = stack1[count];
-	stack1[count] = 0;
-	*pt_stack1 = stack1;
-	*pt_stack2 = stack2;
-}
-
-//push pa
-void	ft_pa(int **pt_stack1, int **pt_stack2, int size, int count)
-{
-	int	*stack1;
-	int	*stack2;
-
-	stack1 = *pt_stack1;
-	stack2 = *pt_stack2;
-	stack1[count] = stack2[size - 1 - count];
-	stack2[size - 1 - count] = 0;
-	*pt_stack1 = stack1;
-	*pt_stack2 = stack2;
 }

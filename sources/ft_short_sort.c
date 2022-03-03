@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_short_sort.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/03 12:17:26 by agouet            #+#    #+#             */
+/*   Updated: 2022/03/03 12:17:29 by agouet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	*ft_tab_ft(int k, int *stack_a)
@@ -64,21 +76,13 @@ void	ft_5_sort(int *stack_a, int *stack_b, int size)
 	int	save [3];
 
 	while (stack_a[0] != 0)
-	{
-		ft_r(stack_a, size, 0);
-		ft_printf("ra\n");
-	}
+		ft_ra(stack_a, size, 0);
 	ft_pb(&stack_a, &stack_b, size, 0);
-	ft_printf("pb\n");
 	if (size == 5)
 	{
 		while (stack_a[1] != 1)
-		{
-			ft_r(stack_a, size, 1);
-			ft_printf("ra\n");
-		}
+			ft_ra(stack_a, size, 1);
 		ft_pb(&stack_a, &stack_b, size, 1);
-		ft_printf("pb\n");
 	}
 	save_3[0] = stack_a[size - 3];
 	save_3[1] = stack_a[size - 2];
@@ -86,10 +90,6 @@ void	ft_5_sort(int *stack_a, int *stack_b, int size)
 	ft_memcpy(save, save_3, sizeof(int) * 3);
 	ft_3_sort(save_3, save);
 	ft_pa (&stack_a, &stack_b, size, 1);
-	ft_printf("pa\n");
 	if (size == 5)
-	{
 		ft_pa (&stack_a, &stack_b, size, 0);
-		ft_printf("pa\n");
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:42:15 by agouet            #+#    #+#             */
-/*   Updated: 2022/02/24 13:50:14 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/03 12:13:40 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	push_back(int *stack_b, int *stack_a, int size)
 	while (i > 0)
 	{
 		ft_pa(&stack_a, &stack_b, size, i - 1);
-		ft_printf("pa\n");
 		i--;
 	}
 }
@@ -59,33 +58,24 @@ int	*ft_radix(int *stack_a, int *stack_b, int size)
 {
 	int	i;
 	int	j;
-	int	max_bits;
 	int	count;
 
-	max_bits = find_max_bits(stack_a, size);
 	i = 0;
-	while (i < max_bits)
+	while (i < find_max_bits(stack_a, size))
 	{
 		j = 0;
 		count = 0;
 		while (j < size && count < size)
 		{
 			if (((stack_a[j] >> i) & 1) == 1)
-			{
-				stack_a = ft_r(stack_a, size, j);
-				ft_printf("ra\n");
-				j--;
-			}
+				ft_ra(stack_a, size, j--);
 			else
-			{
 				ft_pb(&stack_a, &stack_b, size, j);
-				ft_printf("pb\n");
-			}
 			j++;
 			count++;
 		}
 		i++;
-		push_back (stack_b, stack_a, size);
+		push_back(stack_b, stack_a, size);
 		if ((!check_order(stack_a, size)))
 			return (stack_a);
 	}

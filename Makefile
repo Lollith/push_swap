@@ -6,7 +6,7 @@
 #    By: agouet <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 15:26:52 by agouet            #+#    #+#              #
-#    Updated: 2022/03/01 15:52:12 by agouet           ###   ########.fr        #
+#    Updated: 2022/03/03 14:21:41 by agouet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ SRCS		= $(addprefix $(SRCS_PATH), push_swap_main.c \
 			ft_radix.c \
 			push_swap_utils.c \
 			push_swap_operations.c \
-			ft_short_sort.c)
+			ft_short_sort.c \
+			push_swap_operations_print.c \
+			push_swap_checker.c) 
+			
 
 OBJS		= $(SRCS:.c=.o)
 
