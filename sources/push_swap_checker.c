@@ -6,17 +6,11 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:21:13 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/03 14:34:49 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/04 12:48:52 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_print_error(void)
-{	
-	ft_printf("Error\n");
-	return (0);
-}
 
 int	ft_check_digit( int ac, char **av)
 {
@@ -32,7 +26,10 @@ int	ft_check_digit( int ac, char **av)
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
-				ft_print_error();
+			{
+				write(2, "Error\n", 6);
+				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -52,7 +49,10 @@ int	check_double(char **av)
 		while (av[j])
 		{
 			if (!ft_strcmp(av[i], av[j]))
-				ft_print_error();
+			{
+				write(2, "Error\n", 6);
+				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -75,10 +75,10 @@ int	check_max(char **av)
 		if (ft_strlen(av[i]) == ft_strlen(max))
 		{
 			if (ft_strcmp(av[i], max) > 0)
-				ft_print_error();
+				return (0);
 		}
 		else if (ft_strlen(av[i]) > ft_strlen(max))
-			ft_print_error();
+			return (0);
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 11:59:59 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/03 14:34:04 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/04 12:52:49 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "ft_printf.h" 
 # include "libft.h"
 
-int		ft_print_error(void);
 int		ft_check_digit( int ac, char **av);
 int		check_double(char **av);
 int		check_double(char **av);

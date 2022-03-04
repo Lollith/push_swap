@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/03 14:24:04 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/04 14:13:36 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ int	parsing(int ac, char **av)
 {
 	if (ac <= 2)
 		return (0);
-	if ((ft_check_digit(ac, av) == 0))
+	else if ((ft_check_digit(ac, av) == 0))
 		return (0);
-	if (check_double(av) == 0)
+	else if (check_double(av) == 0)
 		return (0);
-	if (check_max(av) == 0)
+	else if (check_max(av) == 0)
+	{
+		write(2, "Error\n", 6);
 		return (0);
-	return (1);
+	}
+	else
+		return (1);
 }
 
 int	*assignment(int ac, char **av)
@@ -39,10 +43,7 @@ int	*assignment(int ac, char **av)
 		input[i - 1] = ft_atoi(av[i]);
 		i++;
 	}
-	if ((!check_order(input, ac - 1)))
-		return (0);
-	else
-		ft_indexing(input, stack_a, ac - 1);
+	ft_indexing(input, stack_a, ac - 1);
 	free(input);
 	return (stack_a);
 }
@@ -50,12 +51,15 @@ int	*assignment(int ac, char **av)
 int	main(int argc, char *argv[])
 {
 	int	*stack_a;
-	int	stack_b[argc - 1];
+	int	*stack_b;
 	int	save[3];	
 
 	if (parsing(argc, argv) == 0)
 		return (0);
 	stack_a = assignment(argc, argv);
+	stack_b = ft_calloc (argc - 1, sizeof(int));
+	if ((!check_order(stack_a, argc - 1)))
+		return (0);
 	if (argc == 3)
 		ft_printf("sa\n");
 	if (argc == 4)
@@ -68,4 +72,5 @@ int	main(int argc, char *argv[])
 	if (argc >= 7)
 		ft_radix(stack_a, stack_b, argc - 1);
 	free(stack_a);
+	free(stack_b);
 }

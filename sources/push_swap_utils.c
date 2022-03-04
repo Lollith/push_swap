@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:51:03 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/03 14:15:02 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/04 11:19:58 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	*ft_indexing(int *input, int *stack_a, int size)
 	int	*input_order;
 	int	i;
 	int	j;
-	
+
 	input_order = ft_calloc (size, sizeof(int));
 	if (!input_order)
 		return (0);

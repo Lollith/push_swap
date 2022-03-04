@@ -6,7 +6,7 @@
 #    By: agouet <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 15:26:52 by agouet            #+#    #+#              #
-#    Updated: 2022/03/03 14:21:41 by agouet           ###   ########.fr        #
+#    Updated: 2022/03/04 13:14:02 by agouet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ DEPS		= $(SRCS:.c=.d)
 
 CC			= gcc
 
-CFLAGS		= -MMD -Wall -Wextra -Werror
+CFLAGS		= -MMD -Wall -Wextra -Werror -g
 
 INC			= -I ./includes -I $(LIB_DIR) -I $(LIB_DIR_LFT) 
 
