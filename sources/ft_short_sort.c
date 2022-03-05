@@ -70,13 +70,38 @@ void	ft_3_sort_print(int i, int j, int e)
 		ft_printf("%s\n%s\n", tab_name[i - 1], tab_name[j]);
 }
 
+int	*ft_best_operation (int	*stack_a, int size, int num)
+{
+	int	i;
+
+	i = 0;
+	while (stack_a[i] != num)
+		i++;
+	if (i  >= size / 2)
+	{
+		while(stack_a[0] != num)
+		{
+			ft_rr(stack_a, size, num);
+			ft_printf("rra\n");
+		}	
+	}
+	else
+	{
+		while(stack_a[0] != num)
+		{
+			ft_r(stack_a,size, num);
+			ft_printf("ra\n");
+		}	
+	}
+	return(stack_a);
+}
+
 void	ft_5_sort(int *stack_a, int *stack_b, int size)
 {
 	int	save_3[3];
 	int	save [3];
 
-	while (stack_a[0] != 0)
-		ft_ra(stack_a, size, 0);
+	ft_best_operation (stack_a, size, 0);
 	ft_pb(&stack_a, &stack_b, size, 0);
 	if (size == 5)
 	{
