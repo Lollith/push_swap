@@ -6,7 +6,7 @@
 #    By: agouet <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 15:26:52 by agouet            #+#    #+#              #
-#    Updated: 2022/03/04 13:14:02 by agouet           ###   ########.fr        #
+#    Updated: 2022/03/04 14:24:12 by agouet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJS		= $(SRCS:.c=.o)
 
 DEPS		= $(SRCS:.c=.d)
 
-CC			= gcc
+CC			= cc
 
 CFLAGS		= -MMD -Wall -Wextra -Werror -g
 

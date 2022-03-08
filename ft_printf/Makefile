@@ -6,7 +6,7 @@
 #    By: agouet <agouet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/30 10:53:37 by agouet            #+#    #+#              #
-#    Updated: 2022/03/01 15:43:06 by agouet           ###   ########.fr        #
+#    Updated: 2022/03/08 10:29:45 by agouet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ clean :
 fclean : 	clean
 		@rm -f $(NAME)
 		@make -C libft -f Makefile fclean
-		@echo "Remove libftprintf.a & libft.a"
+		@echo "*Remove libftprintf.a & libft.a"
 
 
 re : fclean all
