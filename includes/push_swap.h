@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 11:59:59 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/04 12:52:49 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/09 15:52:40 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		check_double(char **av);
 int		check_max(char **av);
 int		parsing(int ac, char **av);
 int		*assignment(int ac, char **av);
+int		free_stack(int *stack_a, int *stack_b);
 int		*ft_s(int *stack, int size, int i);
 int		*ft_r(int *stack, int size, int i);
 int		*ft_rr(int *stack, int size, int i);
@@ -38,7 +39,7 @@ int		*ft_tab_ft(int k, int *stack_a);
 void	ft_3_sort(int *stack_a, int *save);
 void	ft_3_sort_print(int i, int j, int e);
 void	ft_5_sort(int *stack_a, int *stack_b, int size);
-int		*ft_best_operation (int	*stack_a, int size, int num);
+int		*ft_best_operation(int	*stack_a, int size, int num);
 int		find_max(int *stack, int size);
 int		ft_nbr_unit_bin(int nbr);
 void	ft_ra(int *stack, int size, int i);

@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/04 14:13:36 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/09 16:04:21 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ int	*assignment(int ac, char **av)
 	return (stack_a);
 }
 
+int	free_stack(int *stack_a, int *stack_b)
+{
+	free(stack_a);
+	free(stack_b);
+	return (0);
+}
+
 int	main(int argc, char *argv[])
 {
 	int	*stack_a;
@@ -59,7 +66,7 @@ int	main(int argc, char *argv[])
 	stack_a = assignment(argc, argv);
 	stack_b = ft_calloc (argc - 1, sizeof(int));
 	if ((!check_order(stack_a, argc - 1)))
-		return (0);
+		return (free_stack(stack_a, stack_b));
 	if (argc == 3)
 		ft_printf("sa\n");
 	if (argc == 4)
@@ -71,6 +78,5 @@ int	main(int argc, char *argv[])
 		ft_5_sort(stack_a, stack_b, argc - 1);
 	if (argc >= 7)
 		ft_radix(stack_a, stack_b, argc - 1);
-	free(stack_a);
-	free(stack_b);
+	return (free_stack(stack_a, stack_b));
 }
