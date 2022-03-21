@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/09 16:04:21 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/21 12:22:21 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	parsing(int ac, char **av)
 {
-	if (ac <= 2)
-		return (0);
-	else if ((ft_check_digit(ac, av) == 0))
+	if ((ft_check_digit(ac, av) == 0))
 		return (0);
 	else if (check_double(av) == 0)
 		return (0);

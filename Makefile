@@ -6,7 +6,7 @@
 #    By: agouet <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/22 15:26:52 by agouet            #+#    #+#              #
-#    Updated: 2022/03/21 09:42:17 by agouet           ###   ########.fr        #
+#    Updated: 2022/03/21 12:12:56 by agouet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,6 @@ all:		$(NAME)
 
 
 $(NAME):	$(OBJS) $(LIBFTPRINTF)
-		@cp $(LIBFTPRINTF) ./$(NAME)
-		@ar rcs $(NAME) $(OBJS)
 		@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L $(LIB_DIR) -lftprintf -L $(LIB_DIR_LFT) -lft
 		@echo "*Compilation : push_swap"
 
