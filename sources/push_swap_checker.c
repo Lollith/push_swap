@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 14:21:13 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/04 12:48:52 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/24 10:57:37 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ int	ft_check_digit( int ac, char **av)
 		j = 0;
 		if (av[i][j] == '-' || av[i][j] == '+')
 			j++;
+		if (!av[i][j])
+			return (0);
 		while (av[i][j])
 		{
 			if (!ft_isdigit(av[i][j]))
-			{
-				write(2, "Error\n", 6);
 				return (0);
-			}
 			j++;
 		}
 		i++;
@@ -49,10 +48,7 @@ int	check_double(char **av)
 		while (av[j])
 		{
 			if (!ft_strcmp(av[i], av[j]))
-			{
-				write(2, "Error\n", 6);
 				return (0);
-			}
 			j++;
 		}
 		i++;

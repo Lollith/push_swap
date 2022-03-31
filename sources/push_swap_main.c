@@ -6,7 +6,7 @@
 /*   By: agouet <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:58:31 by agouet            #+#    #+#             */
-/*   Updated: 2022/03/21 12:22:21 by agouet           ###   ########.fr       */
+/*   Updated: 2022/03/24 10:57:01 by agouet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 int	parsing(int ac, char **av)
 {
 	if ((ft_check_digit(ac, av) == 0))
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	else if (check_double(av) == 0)
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	else if (check_max(av) == 0)
 	{
 		write(2, "Error\n", 6);
